@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Тканевые обои и бамбуковые панели в Астане. Идеальные стены без хлопот — бесплатная консультация и доставка по всему Казахстану.">
+<meta name="keywords" content="тканевые обои Астана, бамбуковые панели, обои купить Астана, тканевые обои цена, обои на стены Казахстан">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Тканевые обои Астана">
+<!-- OpenGraph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tkoboi-astana.kz/">
+<meta property="og:title" content="NOVA — Интернет-магазин Казахстана">
+<meta property="og:description" content="Тканевые обои и бамбуковые панели с установкой. Бесплатная консультация и доставка по РК.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&h=630&fit=crop&auto=format">
+<meta property="og:locale" content="ru_KZ">
+<meta property="og:site_name" content="Тканевые обои Астана">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NOVA — Интернет-магазин Казахстана">
+<meta name="twitter:description" content="Более 10,000 товаров. Быстрая доставка по Казахстану.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&h=630&fit=crop&auto=format">
+<!-- Favicon (inline SVG as data-URI) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23b5924c'/><text x='50%25' y='54%25' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='white' text-anchor='middle' dominant-baseline='middle'>Т</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23b5924c'/><text x='50%25' y='54%25' font-family='Arial Black,sans-serif' font-size='110' font-weight='900' fill='white' text-anchor='middle' dominant-baseline='middle'>Т</text></svg>">
+<title>Тканевые обои Астана — tkoboi_astana | Бамбук панели</title>
+<!-- Canonical -->
+<link rel="canonical" href="https://tkoboi-astana.kz/">
+<!-- Schema.org Store -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Тканевые обои Астана",
+  "url": "https://tkoboi-astana.kz/",
+  "description": "Тканевые обои и бамбуковые панели в Астане. Консультация, монтаж, доставка по РК.",
+  "image": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&h=630&fit=crop&auto=format",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KZ"
+  },
+  "priceRange": "₸₸",
+  "openingHours": "Mo-Su 00:00-24:00",
+  "currenciesAccepted": "KZT",
+  "paymentAccepted": "Kaspi QR, Kaspi Pay, Credit Card, Cash"
+}
+</script>
+<!-- preconnect for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Promo Strip -->
+<div class="promo-strip" id="promoStrip">
+  <span>🌿 Бесплатная консультация + замер! Звоните: +7 (707) 175-98-77 · Доставка по всему КЗ</span>
+  <button class="close-promo" onclick="document.getElementById('promoStrip').remove()"><i class="fas fa-times"></i></button>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo" onclick="navigate('home')">🌿 ТКАНЕВЫЕ ОБОИ<br><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.5px;opacity:0.7">АСТАНА</span></div>
+  <div class="nav-menu">
+    <a onclick="navigate('home')" id="menu-home" class="active">Главная</a>
+    <a onclick="navigate('catalog')" id="menu-catalog">Каталог</a>
+    <a onclick="navigate('wishlist')" id="menu-wishlist">Избранное</a>
+    <a onclick="navigate('admin')" id="menu-admin" style="display:none">Админ</a>
+  </div>
+  <div class="nav-search">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" placeholder="Поиск обоев и панелей..." id="navSearch" oninput="handleNavSearch(this.value)">
+  </div>
+  <div class="nav-actions">
+    <button class="nav-btn" onclick="navigate('wishlist')" title="Избранное">
+      <i class="fas fa-heart"></i>
+      <span class="badge" id="wishBadge" style="display:none">0</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('cart')" title="Корзина">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="badge" id="cartBadge" style="display:none">0</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('profile')" title="Профиль">
+      <i class="fas fa-user"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- ====== PAGES ====== -->
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span></span> Тканевые обои · Астана 2025</div>
+        <h1 class="hero-title">Идеальные стены<br><span class="gradient">без хлопот</span></h1>
+        <p class="hero-sub">Тканевые обои и бамбуковые панели оптом и в розницу. Бесплатная консультация, профессиональный замер и доставка по всему Казахстану.</p>
+        <div class="hero-btns">
+          <button class="btn btn-primary" onclick="navigate('catalog')"><i class="fas fa-swatchbook"></i> Смотреть каталог</button>
+          <a class="btn btn-outline" href="https://wa.me/77071759877?text=Здравствуйте!%20Хочу%20узнать%20про%20тканевые%20обои" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Коллекций</div></div>
+          <div class="stat"><div class="stat-num">4800+</div><div class="stat-label">Клиентов</div></div>
+          <div class="stat"><div class="stat-num">5 лет</div><div class="stat-label">На рынке</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-float">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=400&h=220&fit=crop&auto=format" alt="Featured Product" onerror="this.style.display='none'">
+          <div class="hero-card-info">
+            <h4>Тканевые обои SR19</h4>
+            <div class="price">4 800 ₸ / рулон</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Banner Cards -->
+    <div class="section">
+      <div class="banner-grid">
+        <div class="banner-card banner-card-1" onclick="navigate('catalog')">
+          <div class="banner-emoji">🎨</div>
+          <div class="banner-tag">Хиты сезона</div>
+          <h3>Тканевые обои</h3>
+          <p>Скидки до 30%</p>
+          <div class="banner-cta">Смотреть <i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="banner-card banner-card-2" onclick="navigate('catalog')">
+          <div class="banner-emoji">🌿</div>
+          <div class="banner-tag">Эко-материалы</div>
+          <h3>Бамбуковые панели</h3>
+          <p>Натуральный декор для вашего интерьера</p>
+          <div class="banner-cta">Перейти <i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="banner-card banner-card-3" onclick="navigate('catalog')">
+          <div class="banner-emoji">🛠️</div>
+          <div class="banner-tag">Услуги</div>
+          <h3>Монтаж & Установка</h3>
+          <p>Профессиональная поклейка с гарантией</p>
+          <div class="banner-cta">Смотреть <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Категории<span class="dot">.</span></h2>
+          <p class="section-sub">Всё для идеального интерьера</p>
+        </div>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+    </div>
+
+    <!-- Popular Products -->
+    <div class="section" style="padding-top:0">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Популярные коллекции<span class="dot">.</span></h2>
+          <p class="section-sub">Популярные коллекции сезона</p>
+        </div>
+        <div class="view-all" onclick="navigate('catalog')">Все товары <i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="products-grid" id="popularGrid"></div>
+    </div>
+
+    <!-- New Arrivals -->
+    <div class="section" style="padding-top:0">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Новинки 2025<span class="dot">.</span></h2>
+          <p class="section-sub">Новинки 2025</p>
+        </div>
+        <div class="view-all" onclick="navigate('catalog')">Смотреть все <i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="products-grid" id="newGrid"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">NOVA</div>
+          <p style="margin-bottom:12px">Тканевые обои и бамбуковые панели в Астане. Бесплатная консультация, замер и доставка по РК.</p>
+          <div style="margin-bottom:16px">
+            <a href="tel:+77071759877" style="display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:600;font-size:0.95rem;text-decoration:none">
+              <i class="fas fa-phone-alt"></i> +7 (707) 175-98-77
+            </a>
+          </div>
+          <div class="social-links" style="margin-top:4px">
+            <a class="social-link" href="https://t.me/tkoboi_astana" target="_blank" rel="noopener" title="Telegram"><i class="fab fa-telegram"></i></a>
+            <a class="social-link" href="https://wa.me/77071759877" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a class="social-link" href="https://www.instagram.com/tkoboi_astana" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Покупателям</h4>
+          <a onclick="showHowToOrder()" style="cursor:pointer">Как сделать заказ</a>
+          <a onclick="showDeliveryInfo()" style="cursor:pointer">Доставка и оплата</a>
+          <a onclick="showReturnInfo()" style="cursor:pointer">Возврат товара</a>
+          <a onclick="navigate('catalog')" style="cursor:pointer">Программа лояльности</a>
+        </div>
+        <div class="footer-col">
+          <h4>Каталог</h4>
+          <a onclick="navigate('catalog');filterByCategory('fabric')" style="cursor:pointer">Тканевые обои</a>
+          <a onclick="navigate('catalog');filterByCategory('bamboo')" style="cursor:pointer">Бамбук панели</a>
+          <a onclick="navigate('catalog');filterByCategory('tools')" style="cursor:pointer">Инструменты</a>
+          <a onclick="navigate('catalog');filterByCategory('glue')" style="cursor:pointer">Клей и грунт</a>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <a onclick="showAbout()" style="cursor:pointer">О нас</a>
+          <a href="mailto:tkoboi.astana@gmail.com" style="cursor:pointer">Контакты</a>
+          <a onclick="navigate('catalog')" style="cursor:pointer">Каталог товаров</a>
+          <a onclick="navigate('profile')" style="cursor:pointer">Личный кабинет</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Тканевые обои Астана. Все права защищены.</span>
+        <span>Астана, ул. Туран 53Б, Ncity · ИП Тканевые обои</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- CATALOG PAGE -->
+<div id="page-catalog" class="page">
+  <div class="container" style="padding-top:40px; padding-bottom:60px">
+    <div class="section-header" style="margin-bottom:24px">
+      <div>
+        <h2 class="section-title">Каталог товаров<span class="dot">.</span></h2>
+        <p class="section-sub" id="catalogSubtitle">Все коллекции</p>
+      </div>
+    </div>
+    <div class="catalog-layout">
+      <!-- Filters -->
+      <div class="filters-panel">
+        <div class="filter-title"><i class="fas fa-sliders-h" style="color:var(--accent);margin-right:8px"></i>Фильтры</div>
+        
+        <div class="filter-group">
+          <div class="filter-label">Категория</div>
+          <div id="catFilters"></div>
+        </div>
+        
+        <div class="filter-group">
+          <div class="filter-label">Цена, ₸</div>
+          <div class="price-inputs">
+            <input type="number" class="price-input" placeholder="От" id="priceMin" oninput="applyFilters()">
+            <input type="number" class="price-input" placeholder="До" id="priceMax" oninput="applyFilters()">
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <div class="filter-label">Рейтинг</div>
+          <label class="filter-option"><input type="checkbox" value="4" onchange="applyFilters()"> ⭐ 4+ звезды</label>
+          <label class="filter-option"><input type="checkbox" value="3" onchange="applyFilters()"> ⭐ 3+ звезды</label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-label">Наличие</div>
+          <label class="filter-option"><input type="checkbox" id="inStockFilter" onchange="applyFilters()"> В наличии</label>
+          <label class="filter-option"><input type="checkbox" id="saleFilter" onchange="applyFilters()"> Со скидкой</label>
+        </div>
+
+        <button onclick="resetFilters()" style="width:100%;padding:10px;border-radius:10px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);font-size:0.88rem;cursor:pointer;transition:var(--transition)">
+          <i class="fas fa-undo"></i> Сбросить фильтры
+        </button>
+      </div>
+
+      <div>
+        <div class="catalog-top">
+          <div class="catalog-count" id="catalogCount">Загрузка...</div>
+          <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+            <option value="popular">По популярности</option>
+            <option value="price-asc">Сначала дешевле</option>
+            <option value="price-desc">Сначала дороже</option>
+            <option value="rating">По рейтингу</option>
+            <option value="new">Новинки</option>
+          </select>
+        </div>
+        <div class="products-grid" id="catalogGrid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT PAGE -->
+<div id="page-product" class="page">
+  <div class="container">
+    <div class="product-page">
+      <div class="product-breadcrumb" id="productBreadcrumb"></div>
+      <div class="product-layout" id="productLayout"></div>
+      <!-- Related Products -->
+      <div style="margin-top:60px">
+        <div class="section-header">
+          <div><h2 class="section-title">Похожие товары<span class="dot">.</span></h2></div>
+        </div>
+        <div class="products-grid" id="relatedGrid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART PAGE -->
+<div id="page-cart" class="page">
+  <div class="container" style="padding-top:40px; padding-bottom:60px">
+    <h2 class="section-title" style="margin-bottom:32px">Корзина<span class="dot">.</span></h2>
+    <div id="cartContent"></div>
+  </div>
+</div>
+
+<!-- WISHLIST PAGE -->
+<div id="page-wishlist" class="page">
+  <div class="container" style="padding-top:40px; padding-bottom:60px">
+    <h2 class="section-title" style="margin-bottom:32px">Избранное<span class="dot">.</span></h2>
+    <div id="wishlistContent"></div>
+  </div>
+</div>
+
+<!-- CHECKOUT PAGE -->
+<div id="page-checkout" class="page">
+  <div class="container" style="padding-top:40px; padding-bottom:60px">
+    <h2 class="section-title" style="margin-bottom:32px">Оформление заказа<span class="dot">.</span></h2>
+    <div class="checkout-layout">
+      <div>
+        <!-- Contact Info -->
+        <div class="form-section">
+          <div class="form-section-title"><i class="fas fa-user"></i> Контактная информация</div>
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label">Имя</label><input class="form-input" id="co-name" placeholder="Иван Иванов"></div>
+            <div class="form-group"><label class="form-label">Телефон</label><input class="form-input" id="co-phone" placeholder="+7 (900) 000-00-00"></div>
+            <div class="form-group full"><label class="form-label">Email</label><input class="form-input" id="co-email" placeholder="ivan@example.com" type="email"></div>
+          </div>
+        </div>
+        <!-- Delivery -->
+        <div class="form-section">
+          <div class="form-section-title"><i class="fas fa-truck"></i> Доставка</div>
+          <div class="form-group" style="margin-bottom:20px"><label class="form-label">Адрес</label><input class="form-input" id="co-address" placeholder="Астана, мкр Нурсат, ул. Туран, д. 1, кв. 1"></div>
+          <div class="radio-group" id="deliveryOptions">
+            <label class="radio-option selected" onclick="selectDelivery(this, 'courier', 350)">
+              <input type="radio" name="delivery" value="courier" checked>
+              <div><div class="radio-label"><i class="fas fa-truck" style="color:var(--accent);margin-right:6px"></i> Курьер</div><div class="radio-sub">1-3 дня · 350 ₸</div></div>
+            </label>
+            <label class="radio-option" onclick="selectDelivery(this, 'post', 200)">
+              <input type="radio" name="delivery" value="post">
+              <div><div class="radio-label"><i class="fas fa-envelope" style="color:var(--accent);margin-right:6px"></i> Kaspi доставка</div><div class="radio-sub">5-10 дней · 200 ₸</div></div>
+            </label>
+            <label class="radio-option" onclick="selectDelivery(this, 'pickup', 0)">
+              <input type="radio" name="delivery" value="pickup">
+              <div><div class="radio-label"><i class="fas fa-store" style="color:var(--accent);margin-right:6px"></i> Самовывоз</div><div class="radio-sub">Бесплатно · Туран 53Б, Ncity, Астана</div></div>
+            </label>
+          </div>
+        </div>
+        <!-- Payment -->
+        <div class="form-section">
+          <div class="form-section-title"><i class="fas fa-credit-card"></i> Оплата</div>
+          <div class="radio-group" id="paymentOptions">
+            <label class="radio-option selected" onclick="selectPayment(this, 'kaspi_qr')">
+              <input type="radio" name="payment" value="kaspi_qr" checked>
+              <div><div class="radio-label"><span style="background:#ff6034;color:#fff;font-weight:800;font-size:0.75rem;padding:2px 7px;border-radius:6px;margin-right:6px">K</span> Kaspi QR</div><div class="radio-sub">Оплата через приложение Kaspi.kz</div></div>
+            </label>
+            <label class="radio-option" onclick="selectPayment(this, 'kaspi_pay')">
+              <input type="radio" name="payment" value="kaspi_pay">
+              <div><div class="radio-label"><span style="background:#ff6034;color:#fff;font-weight:800;font-size:0.75rem;padding:2px 7px;border-radius:6px;margin-right:6px">K</span> Kaspi Pay</div><div class="radio-sub">Оплата в рассрочку 0-0-12</div></div>
+            </label>
+            <label class="radio-option" onclick="selectPayment(this, 'card')">
+              <input type="radio" name="payment" value="card">
+              <div><div class="radio-label"><i class="fas fa-credit-card" style="color:var(--accent);margin-right:6px"></i> Банковская карта</div><div class="radio-sub">Visa, MasterCard</div></div>
+            </label>
+            <label class="radio-option" onclick="selectPayment(this, 'cash')">
+              <input type="radio" name="payment" value="cash">
+              <div><div class="radio-label"><i class="fas fa-money-bill" style="color:var(--accent);margin-right:6px"></i> Наличными</div><div class="radio-sub">При получении</div></div>
+            </label>
+          </div>
+          <!-- Kaspi QR mockup -->
+          <div id="kaspiQrBlock" style="margin-top:20px;text-align:center;background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:28px">
+            <div style="font-size:0.85rem;color:var(--text2);margin-bottom:16px">Отсканируйте QR-код через приложение <strong style="color:#ff6034">Kaspi.kz</strong></div>
+            <div style="width:140px;height:140px;margin:0 auto 16px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:10px">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="120" height="120">
+                <rect width="100" height="100" fill="white"/>
+                <!-- QR corner squares -->
+                <rect x="10" y="10" width="25" height="25" fill="none" stroke="#000" stroke-width="4"/>
+                <rect x="15" y="15" width="15" height="15" fill="#000"/>
+                <rect x="65" y="10" width="25" height="25" fill="none" stroke="#000" stroke-width="4"/>
+                <rect x="70" y="15" width="15" height="15" fill="#000"/>
+                <rect x="10" y="65" width="25" height="25" fill="none" stroke="#000" stroke-width="4"/>
+                <rect x="15" y="70" width="15" height="15" fill="#000"/>
+                <!-- QR data dots (decorative) -->
+                <rect x="45" y="10" width="5" height="5" fill="#000"/><rect x="52" y="10" width="5" height="5" fill="#000"/>
+                <rect x="45" y="18" width="5" height="5" fill="#000"/><rect x="10" y="45" width="5" height="5" fill="#000"/>
+                <rect x="18" y="45" width="5" height="5" fill="#000"/><rect x="26" y="45" width="5" height="5" fill="#000"/>
+                <rect x="45" y="45" width="5" height="5" fill="#ff6034"/><rect x="52" y="45" width="5" height="5" fill="#ff6034"/>
+                <rect x="60" y="45" width="5" height="5" fill="#ff6034"/><rect x="45" y="52" width="5" height="5" fill="#000"/>
+                <rect x="52" y="52" width="5" height="5" fill="#000"/><rect x="65" y="52" width="5" height="5" fill="#000"/>
+                <rect x="72" y="52" width="5" height="5" fill="#000"/><rect x="80" y="52" width="5" height="5" fill="#000"/>
+                <rect x="65" y="60" width="5" height="5" fill="#000"/><rect x="72" y="68" width="5" height="5" fill="#000"/>
+                <rect x="80" y="60" width="5" height="5" fill="#000"/><rect x="65" y="76" width="5" height="5" fill="#000"/>
+                <rect x="72" y="76" width="5" height="5" fill="#000"/><rect x="80" y="76" width="5" height="5" fill="#000"/>
+                <rect x="45" y="60" width="5" height="5" fill="#000"/><rect x="45" y="76" width="5" height="5" fill="#000"/>
+                <rect x="10" y="60" width="5" height="5" fill="#000"/><rect x="18" y="68" width="5" height="5" fill="#000"/>
+                <rect x="26" y="60" width="5" height="5" fill="#000"/>
+              </svg>
+            </div>
+            <div style="font-size:0.75rem;color:var(--text3)">После сканирования нажмите «Оформить заказ»</div>
+          </div>
+          <!-- Card Form -->
+          <div id="cardForm" style="margin-top:20px;display:none">
+            <div class="card-preview">
+              <div class="card-chip"></div>
+              <div class="card-number" id="cardNumPreview">•••• •••• •••• ••••</div>
+              <div class="card-meta">
+                <span id="cardNamePreview">ВАШЕ ИМЯ</span>
+                <span id="cardExpPreview">MM/YY</span>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-group full"><label class="form-label">Номер карты</label><input class="form-input" id="cardNum" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)"></div>
+              <div class="form-group"><label class="form-label">Срок действия</label><input class="form-input" id="cardExp" placeholder="MM/YY" maxlength="5" oninput="formatExp(this)"></div>
+              <div class="form-group"><label class="form-label">CVV</label><input class="form-input" type="password" placeholder="•••" maxlength="3"></div>
+              <div class="form-group full"><label class="form-label">Имя на карте</label><input class="form-input" id="cardName" placeholder="IVAN IVANOV" oninput="document.getElementById('cardNamePreview').textContent=this.value||'ВАШЕ ИМЯ'"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Order Summary -->
+      <div>
+        <div class="cart-summary" style="position:sticky;top:90px">
+          <h3>Ваш заказ</h3>
+          <div id="checkoutItems"></div>
+          <div id="checkoutSummary"></div>
+          <div style="display:flex;gap:8px;margin:14px 0">
+            <input class="price-input" id="checkoutPromoInput" placeholder="Промокод" style="flex:1;font-size:0.85rem" oninput="this.value=this.value.toUpperCase()">
+            <button onclick="applyCheckoutPromo()" style="padding:8px 14px;border-radius:8px;background:var(--accent);color:#fff;font-size:0.82rem;font-weight:600;white-space:nowrap">Применить</button>
+          </div>
+          <div id="checkoutPromoMsg" style="font-size:0.8rem;margin-bottom:8px;min-height:18px"></div>
+          <button class="btn-checkout" onclick="placeOrder()"><i class="fas fa-lock"></i> Оплатить заказ</button>
+          <p style="text-align:center;font-size:0.75rem;color:var(--text3);margin-top:12px"><i class="fas fa-shield-alt" style="margin-right:4px;color:var(--accent)"></i>Ваши данные защищены SSL-шифрованием</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE PAGE -->
+<div id="page-profile" class="page">
+  <div class="container" style="padding-top:40px; padding-bottom:60px">
+    <div id="profileContent"></div>
+  </div>
+</div>
+
+<!-- ADMIN PAGE -->
+<div id="page-admin" class="page">
+  <div class="admin-layout">
+    <div class="admin-sidebar">
+      <div style="padding:0 8px;margin-bottom:24px">
+        <div class="nav-logo" style="font-size:1rem">🌿 Обои Астана Admin</div>
+        <div style="font-size:0.75rem;color:var(--text3);margin-top:2px">Панель управления</div>
+        <div id="adminRoleLabel" style="font-size:0.72rem;font-weight:700;margin-top:6px;color:var(--gold)"></div>
+      </div>
+      <div class="admin-nav">
+        <h3>Основное</h3>
+        <a onclick="adminTab('dashboard')" id="adm-dashboard" class="active"><i class="fas fa-chart-line"></i> Дашборд</a>
+        <a onclick="adminTab('products')" id="adm-products"><i class="fas fa-box"></i> Товары</a>
+        <a onclick="adminTab('orders')" id="adm-orders"><i class="fas fa-receipt"></i> Заказы</a>
+        <h3>Управление</h3>
+        <a onclick="adminTab('customers')" id="adm-customers"><i class="fas fa-users"></i> Покупатели</a>
+        <a onclick="adminTab('promo')" id="adm-promo"><i class="fas fa-tag"></i> Промокоды</a>
+        <h3>Система</h3>
+        <a onclick="adminTab('settings')" id="adm-settings"><i class="fas fa-cog"></i> Настройки</a>
+        <a onclick="navigate('home')" style="margin-top:8px;color:var(--text3) !important"><i class="fas fa-arrow-left"></i> На сайт</a>
+        <a onclick="logout()" style="margin-top:4px;color:var(--danger) !important"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+      </div>
+    </div>
+    <div class="admin-main" id="adminMain"></div>
+  </div>
+</div>
+
+
+<!-- WhatsApp Float Button -->
+<div class="whatsapp-float">
+  <a class="whatsapp-btn" href="https://wa.me/77071759877?text=Здравствуйте!%20Хочу%20узнать%20про%20тканевые%20обои" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp" style="font-size:1.3rem"></i>
+    <span>WhatsApp</span>
+  </a>
+</div>
+<!-- Notifications container -->
+<div class="notifications" id="notifications"></div>
+
+<!-- 404 PAGE -->
+<div id="page-404" class="page">
+  <div style="min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px">
+    <div>
+      <div style="font-size:8rem;font-weight:900;font-family:'Clash Display',sans-serif;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">404</div>
+      <h2 style="margin:16px 0 12px;font-size:1.8rem">Страница не найдена</h2>
+      <p style="color:var(--text2);margin-bottom:32px;max-width:400px">Запрашиваемая страница не существует или была перемещена.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="navigate('home')"><i class="fas fa-home"></i> На главную</button>
+        <button class="btn btn-outline" onclick="navigate('catalog')"><i class="fas fa-th-large"></i> В каталог</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <div class="mobile-nav-item active" onclick="navigate('home')" id="mnav-home">
+      <i class="fas fa-home"></i><span>Главная</span>
+    </div>
+    <div class="mobile-nav-item" onclick="navigate('catalog')" id="mnav-catalog">
+      <i class="fas fa-th-large"></i><span>Каталог</span>
+    </div>
+    <div class="mobile-nav-item" onclick="navigate('cart')" id="mnav-cart" style="position:relative">
+      <i class="fas fa-shopping-bag"></i><span>Корзина</span>
+    </div>
+    <div class="mobile-nav-item" onclick="navigate('wishlist')" id="mnav-wishlist">
+      <i class="fas fa-heart"></i><span>Избранное</span>
+    </div>
+    <div class="mobile-nav-item" onclick="navigate('profile')" id="mnav-profile">
+      <i class="fas fa-user"></i><span>Профиль</span>
+    </div>
+  </div>
+</nav>
+
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
