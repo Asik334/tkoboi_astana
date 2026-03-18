@@ -850,7 +850,7 @@ function quickLogin(role) {
 }
 function logout() {
  currentUser = null;
- localStorage.removeItem('nova_user');
+ localStorage.removeItem('tkoboi_user');
  showNotif('Вы вышли из аккаунта', 'info');
  updateNavForRole();
  renderAuth('login');
@@ -1372,7 +1372,26 @@ function openAddProduct() {
  </div>
  </div>
  <div class="form-group"><label class="form-label">Описание</label><textarea class="form-input" id="ap-desc" rows="3" placeholder="Описание товара..."></textarea></div>
- <div class="form-group"><label class="form-label">URL изображения</label><input class="form-input" id="ap-img" placeholder="https://images.unsplash.com/..."></div>
+ <div class="form-group">
+   <label class="form-label">Фото товара</label>
+   <div id="ap-img-dropzone" onclick="document.getElementById('ap-img-file').click()" style="border:2px dashed var(--border);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:var(--transition);background:var(--bg3);position:relative;min-height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+     <i class="fas fa-cloud-upload-alt" style="font-size:2rem;color:var(--text3)"></i>
+     <span style="color:var(--text2);font-size:0.88rem">Нажмите или перетащите фото</span>
+     <span style="color:var(--text3);font-size:0.75rem">JPG, PNG, WEBP · до 5 МБ</span>
+   </div>
+   <input type="file" id="ap-img-file" accept="image/*" style="display:none" onchange="handleProductImageUpload(this, 'ap-img-preview', 'ap-img-dropzone', 'ap-img-data')">
+   <div id="ap-img-preview" style="display:none;margin-top:10px;position:relative">
+     <img id="ap-img-preview-img" style="width:100%;max-height:180px;object-fit:cover;border-radius:10px;border:1px solid var(--border)">
+     <button onclick="clearProductImage('ap-img-preview','ap-img-dropzone','ap-img-data')" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.7);color:#fff;border-radius:8px;width:28px;height:28px;font-size:0.85rem;display:flex;align-items:center;justify-content:center"><i class="fas fa-times"></i></button>
+   </div>
+   <input type="hidden" id="ap-img-data">
+   <div style="display:flex;align-items:center;gap:8px;margin-top:10px">
+     <div style="flex:1;height:1px;background:var(--border)"></div>
+     <span style="font-size:0.75rem;color:var(--text3)">или вставьте ссылку</span>
+     <div style="flex:1;height:1px;background:var(--border)"></div>
+   </div>
+   <input class="form-input" id="ap-img" placeholder="https://images.unsplash.com/..." style="margin-top:8px;font-size:0.85rem">
+ </div>
  <div class="form-group"><label class="form-label">Цвета (через запятую)</label><input class="form-input" id="ap-colors" placeholder="Чёрный, Белый, Синий"></div>
  <div class="form-group"><label class="form-label">Размеры (через запятую)</label><input class="form-input" id="ap-sizes" placeholder="S, M, L, XL или 40, 41, 42"></div>
  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
@@ -1407,7 +1426,26 @@ function editProduct(id) {
  </div>
  </div>
  <div class="form-group"><label class="form-label">Описание</label><textarea class="form-input" id="ap-desc" rows="3">${p.desc||''}</textarea></div>
- <div class="form-group"><label class="form-label">URL изображения</label><input class="form-input" id="ap-img" value="${p.img}"></div>
+ <div class="form-group">
+   <label class="form-label">Фото товара</label>
+   <div id="ap-img-dropzone" onclick="document.getElementById('ap-img-file').click()" style="border:2px dashed var(--border);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:var(--transition);background:var(--bg3);position:relative;min-height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+     <i class="fas fa-cloud-upload-alt" style="font-size:2rem;color:var(--text3)"></i>
+     <span style="color:var(--text2);font-size:0.88rem">Нажмите чтобы заменить фото</span>
+     <span style="color:var(--text3);font-size:0.75rem">JPG, PNG, WEBP · до 5 МБ</span>
+   </div>
+   <input type="file" id="ap-img-file" accept="image/*" style="display:none" onchange="handleProductImageUpload(this, 'ap-img-preview', 'ap-img-dropzone', 'ap-img-data')">
+   <div id="ap-img-preview" style="${p.img ? '' : 'display:none;'}margin-top:10px;position:relative">
+     <img id="ap-img-preview-img" src="${p.img||''}" style="width:100%;max-height:180px;object-fit:cover;border-radius:10px;border:1px solid var(--border)">
+     <button onclick="clearProductImage('ap-img-preview','ap-img-dropzone','ap-img-data')" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.7);color:#fff;border-radius:8px;width:28px;height:28px;font-size:0.85rem;display:flex;align-items:center;justify-content:center"><i class="fas fa-times"></i></button>
+   </div>
+   <input type="hidden" id="ap-img-data">
+   <div style="display:flex;align-items:center;gap:8px;margin-top:10px">
+     <div style="flex:1;height:1px;background:var(--border)"></div>
+     <span style="font-size:0.75rem;color:var(--text3)">или вставьте ссылку</span>
+     <div style="flex:1;height:1px;background:var(--border)"></div>
+   </div>
+   <input class="form-input" id="ap-img" value="${p.img||''}" placeholder="https://images.unsplash.com/..." style="margin-top:8px;font-size:0.85rem">
+ </div>
  <div class="form-group"><label class="form-label">Цвета</label><input class="form-input" id="ap-colors" value="${p.colors?.join(', ')||''}"></div>
  <div class="form-group"><label class="form-label">Размеры</label><input class="form-input" id="ap-sizes" value="${p.sizes?.join(', ')||''}"></div>
  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
@@ -1417,6 +1455,54 @@ function editProduct(id) {
  <button class="btn btn-primary" style="width:100%" onclick="saveProduct()"><i class="fas fa-save"></i> Сохранить изменения</button>
  `);
 }
+function handleProductImageUpload(input, previewId, dropzoneId, dataId) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) {
+    showNotif('Файл слишком большой. Максимум 5 МБ', 'error');
+    input.value = '';
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    // Store base64 in hidden input
+    const dataInput = document.getElementById(dataId);
+    if (dataInput) dataInput.value = dataUrl;
+    // Show preview
+    const preview = document.getElementById(previewId);
+    const previewImg = document.getElementById(previewId + '-img');
+    const dropzone = document.getElementById(dropzoneId);
+    if (preview && previewImg) {
+      previewImg.src = dataUrl;
+      preview.style.display = 'block';
+    }
+    if (dropzone) {
+      dropzone.style.borderColor = 'var(--accent)';
+      dropzone.innerHTML = `<i class="fas fa-check-circle" style="font-size:1.5rem;color:var(--success)"></i><span style="color:var(--success);font-size:0.85rem">Фото загружено</span>`;
+    }
+    // Clear URL input since we have a file
+    const urlInput = document.getElementById('ap-img');
+    if (urlInput) urlInput.value = '';
+  };
+  reader.readAsDataURL(file);
+}
+function clearProductImage(previewId, dropzoneId, dataId) {
+  const preview = document.getElementById(previewId);
+  const dropzone = document.getElementById(dropzoneId);
+  const dataInput = document.getElementById(dataId);
+  const fileInput = document.getElementById('ap-img-file');
+  if (preview) preview.style.display = 'none';
+  if (dataInput) dataInput.value = '';
+  if (fileInput) fileInput.value = '';
+  if (dropzone) {
+    dropzone.style.borderColor = 'var(--border)';
+    dropzone.innerHTML = `
+      <i class="fas fa-cloud-upload-alt" style="font-size:2rem;color:var(--text3)"></i>
+      <span style="color:var(--text2);font-size:0.88rem">Нажмите или перетащите фото</span>
+      <span style="color:var(--text3);font-size:0.75rem">JPG, PNG, WEBP · до 5 МБ</span>`;
+  }
+}
 function saveProduct() {
  const name = document.getElementById('ap-name')?.value?.trim();
  const price = parseFloat(document.getElementById('ap-price')?.value);
@@ -1424,24 +1510,27 @@ function saveProduct() {
  const cat = document.getElementById('ap-cat')?.value;
  const badge = document.getElementById('ap-badge')?.value || null;
  const desc = document.getElementById('ap-desc')?.value;
- const img = document.getElementById('ap-img')?.value;
+ // Priority: uploaded file (base64) > URL input
+ const imgBase64 = document.getElementById('ap-img-data')?.value;
+ const imgUrl = document.getElementById('ap-img')?.value?.trim();
+ const img = imgBase64 || imgUrl || '';
  const inStock = document.getElementById('ap-instock')?.checked ?? true;
  const colorsRaw = document.getElementById('ap-colors')?.value;
  const sizesRaw = document.getElementById('ap-sizes')?.value;
  const colors = colorsRaw ? colorsRaw.split(',').map(s=>s.trim()).filter(Boolean) : [];
  const sizes = sizesRaw ? sizesRaw.split(',').map(s=>s.trim()).filter(Boolean) : [];
  if (!name || !price) { showNotif('Заполните название и цену', 'error'); return; }
+ if (!img) { showNotif('Добавьте фото товара или вставьте ссылку', 'error'); return; }
  const catObj = CATEGORIES.find(c => c.id === cat);
  if (editingProductId) {
- const p = adminProducts.find(x => x.id === editingProductId);
- if (p) { Object.assign(p, { name, price, oldPrice, cat, catName: catObj?.name||cat, badge, desc, inStock, colors, sizes }); if (img) p.img = img; }
- showNotif('Товар обновлён!', 'success');
+   const p = adminProducts.find(x => x.id === editingProductId);
+   if (p) { Object.assign(p, { name, price, oldPrice, cat, catName: catObj?.name||cat, badge, desc, inStock, colors, sizes, img }); }
+   showNotif('Товар обновлён!', 'success');
  } else {
- const newId = Math.max(...adminProducts.map(p=>p.id), 0) + 1;
- const defaultImg = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=450&fit=crop&auto=format';
- adminProducts.push({ id: newId, name, price, oldPrice, cat, catName: catObj?.name||cat, badge, desc, img: img||defaultImg, inStock, colors, sizes, rating: 4.5, reviews: 0, specs: [], imgs: [] });
- PRODUCTS.push(adminProducts[adminProducts.length-1]);
- showNotif('Товар добавлен!', 'success');
+   const newId = Math.max(...adminProducts.map(p=>p.id), 0) + 1;
+   adminProducts.push({ id: newId, name, price, oldPrice, cat, catName: catObj?.name||cat, badge, desc, img, imgs:[img], inStock, colors, sizes, rating: 4.5, reviews: 0, specs: [] });
+   PRODUCTS.push(adminProducts[adminProducts.length-1]);
+   showNotif('Товар добавлен!', 'success');
  }
  closeModal();
  renderAdminProducts();
@@ -1849,7 +1938,7 @@ function doModalRegister() {
   closeModal();
 }
 console.log('%cТканевые обои Астана 🏠', 'font-size:20px;font-weight:bold;color:#b5924c');
-console.log('%cДобро пожаловать в NOVA KZ', 'color:#43e8b0');
+console.log('%cДобро пожаловать в Тканевые обои Астана', 'color:#43e8b0');
 
 // ── History API for SPA deep-link support ─────────────────────
 (function(){
@@ -1921,7 +2010,7 @@ function showDeliveryInfo() {
         <div style="font-weight:800;color:var(--accent)">${storeSettings.postCost} ₸</div>
       </div>
       <div style="background:var(--bg3);border-radius:12px;padding:14px;display:flex;justify-content:space-between;align-items:center">
-        <div><div style="font-weight:700"><i class="fas fa-store" style="color:var(--accent);margin-right:8px"></i>Самовывоз</div><div style="color:var(--text2);font-size:0.82rem;margin-top:3px">пр-т Ленина, 1 · Пн–Вс 9:00–21:00</div></div>
+        <div><div style="font-weight:700"><i class="fas fa-store" style="color:var(--accent);margin-right:8px"></i>Самовывоз</div><div style="color:var(--text2);font-size:0.82rem;margin-top:3px">Туран 53Б, Ncity, Астана · Пн–Вс 9:00–20:00</div></div>
         <div style="font-weight:800;color:var(--success)">Бесплатно</div>
       </div>
       <div style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:12px;font-size:0.85rem;color:var(--success)">
@@ -1997,3 +2086,36 @@ function showAbout() {
     </div>
   `);
 }
+
+// ── Drag-and-drop support for product image upload ────────────
+document.addEventListener('dragover', function(e) {
+  const dropzone = document.getElementById('ap-img-dropzone');
+  if (dropzone && dropzone.contains(e.target) || e.target === dropzone) {
+    e.preventDefault();
+    dropzone.style.borderColor = 'var(--accent)';
+    dropzone.style.background = 'rgba(181,146,76,0.08)';
+  }
+});
+document.addEventListener('dragleave', function(e) {
+  const dropzone = document.getElementById('ap-img-dropzone');
+  if (dropzone && !dropzone.contains(e.relatedTarget)) {
+    dropzone.style.borderColor = 'var(--border)';
+    dropzone.style.background = 'var(--bg3)';
+  }
+});
+document.addEventListener('drop', function(e) {
+  const dropzone = document.getElementById('ap-img-dropzone');
+  if (!dropzone) return;
+  e.preventDefault();
+  dropzone.style.borderColor = 'var(--border)';
+  dropzone.style.background = 'var(--bg3)';
+  const file = e.dataTransfer?.files?.[0];
+  if (!file || !file.type.startsWith('image/')) return;
+  // Simulate file input change
+  const fileInput = document.getElementById('ap-img-file');
+  if (!fileInput) return;
+  const dt = new DataTransfer();
+  dt.items.add(file);
+  fileInput.files = dt.files;
+  handleProductImageUpload(fileInput, 'ap-img-preview', 'ap-img-dropzone', 'ap-img-data');
+});
